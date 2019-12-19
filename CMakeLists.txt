@@ -37,5 +37,5 @@ add_subdirectory(Sources/Tetris)
 # Code coverage
 option(BUILD_COVERAGE "Build code coverage" OFF)
 if(CMAKE_BUILD_TYPE MATCHES Debug AND CMAKE_COMPILER_IS_GNUCXX AND BUILD_COVERAGE)
-    include(CMake/CodeCoverage.cmake)
+    include(CMake/CodeCoverage.cmake) 
 endif()
