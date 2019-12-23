@@ -4,10 +4,11 @@
 #include <iostream>
 #include <vector>
 
-#include <Tetris/tetrimino.h>
+#include <Tetris/Tetrimino.h>
 
 namespace Tetris
 {
+class Tetrimino;
 class Game
 {
  public:
@@ -23,8 +24,10 @@ class Game
 
     std::size_t GetOriginX();
     std::size_t GetOriginY();
+    std::size_t GetWidth();
+    std::size_t GetHeight();
     std::size_t GetScrWidth();
-    std::size_t GetScrWidth();
+    std::size_t GetScrHeight();
 
  private:
     std::size_t score_;

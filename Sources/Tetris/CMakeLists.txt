@@ -1,5 +1,5 @@
 # Target name
-set(target Poker)
+set(target Tetris)
 
 # Sources
 file(GLOB_RECURSE sources ${CMAKE_CURRENT_SOURCE_DIR}/*.cc)

@@ -1,4 +1,4 @@
-#include <Tetris/tetrimino.h>
+#include <Tetris/Tetrimino.h>
 
 namespace Tetris
 {
@@ -18,7 +18,7 @@ void Tetrimino::MoveDown()
 
 void Tetrimino::MoveLeft()
 {
-    std::size_t& minX = game->GetOriginX();
+    std::size_t minX = game->GetOriginX();
 
     if (Pos.GetX() > minX + 1)
     {
@@ -28,7 +28,7 @@ void Tetrimino::MoveLeft()
 
 void Tetrimino::MoveRight()
 {
-    std::size_t& maxX = game->GetOriginX() + game->GetScrWidth();
+    std::size_t maxX = game->GetOriginX() + game->GetScrWidth();
 
     if (Pos.GetX() < maxX - 1)
     {

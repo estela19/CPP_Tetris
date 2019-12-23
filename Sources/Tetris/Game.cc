@@ -41,4 +41,34 @@ void Game::SetIsPause(bool pause)
 {
     isPause = pause;
 }
+
+std::size_t Game::GetOriginX()
+{
+    return originX;
+}
+
+std::size_t Game::GetOriginY()
+{
+    return originY;
+}
+
+std::size_t Game::GetWidth()
+{
+    return width_;
+}
+
+std::size_t Game::GetHeight()
+{
+    return height_;
+}
+
+std::size_t Game::GetScrWidth()
+{
+    return scrwidth_;
+}
+
+std::size_t Game::GetScrHeight()
+{
+    return scrheight_;
+}
 }  // namespace Tetris

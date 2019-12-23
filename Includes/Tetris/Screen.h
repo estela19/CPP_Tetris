@@ -2,7 +2,7 @@
 #define _TETRIS_SCREEN_H_
 
 #include <Tetris/Point.h>
-#include <Tetris/tetrimino.h>
+#include <Tetris/Tetrimino.h>
 
 namespace Tetris
 {
@@ -21,6 +21,8 @@ class Screen
 
     const std::size_t scrwidth_ = width_ + 1;
     const std::size_t scrheight_ = height_ + 1;
+
+    friend Game;
 };
 }  // namespace Tetris
 

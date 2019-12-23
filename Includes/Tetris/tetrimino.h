@@ -9,6 +9,8 @@
 
 namespace Tetris
 {
+class Game;
+class Board;
 class Tetrimino
 {
  public:
