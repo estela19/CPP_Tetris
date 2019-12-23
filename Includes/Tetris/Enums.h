@@ -24,17 +24,6 @@ enum class RotateType
     LEFT
 };
 
-enum class Color
-{
-    DARK_BLUE,
-    GREEN,
-    PURPLE,
-    SKY_BLUE,
-    RED,
-    PLUM,
-    YELLOW
-};
-
 enum class KeyType
 {
     UP,
