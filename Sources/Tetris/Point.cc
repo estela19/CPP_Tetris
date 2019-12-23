@@ -56,8 +56,7 @@ void Point::GotoXY(Point pos)
 
 void Point::GotoScrXY(int x, int y)
 {
-    std::size_t tmpX = 2 * x + 2;
-//    std::size_t tmpY = (-1) * y + 20;
+    int tmpX = 2 * x + 2;
     COORD Pos = { static_cast<short>(tmpX), static_cast<short>(y) };
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
 }
@@ -65,6 +64,6 @@ void Point::GotoScrXY(int x, int y)
 Point Point::GetScrPosFromCurPos(
     const Point& pos)  // 배열좌표를 화면좌표로 가져온다.
 {
-    return Point(2 * pos.x_ + 2, (-1) * pos.y_ + 20);
+    return Point(2 * pos.x_ + 2, pos.y_);
 }
 }  // namespace Tetris
