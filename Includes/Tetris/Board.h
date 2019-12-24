@@ -12,19 +12,19 @@ class Game;
 class Board
 {
  public:
+    Board(std::size_t width, std::size_t height);
     std::vector<int>& GetBoard();
-    std::size_t PositionToIdx();
+    std::size_t PositionToIdx(std::size_t y, std::size_t x);
     bool IsFullRow(std::size_t idx);
     void GetFullRow();
     void UpdateBoard();
     void ClearBoard();
-    void ClearLine();
-    void DeleteLine(std::size_t idx);
+    void ClearLine(std::size_t idx);
 
 
  private:
-    const std::size_t width;
-    const std::size_t height;
+    const std::size_t width_;
+    const std::size_t height_;
     Game* game;
     std::vector<int> board;
     std::set<std::size_t> fullIdx;
