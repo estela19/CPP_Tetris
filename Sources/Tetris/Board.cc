@@ -2,7 +2,11 @@
 
 namespace Tetris
 {
-Boardtype& Board::GetBoard()
+Board::Board() : board(height * width)
+{
+}
+
+std::vector<int>& Board::GetBoard()
 {
     return board;
 }
@@ -47,7 +51,7 @@ void Board::ClearBoard()
 {
     for (int i = 0; i < game->GetHeight(); i++)
     {
-      //  board[i].clear();
+        //  board[i].clear();
     }
 }
 

@@ -3,18 +3,17 @@
 
 #include <Tetris/Game.h>
 
-#include <array>
+#include <vector>
 #include <set>
 
 namespace Tetris
 {
-using Boardtype = std::array<std::array<int, 20>, 10>;
-
 class Game;
 class Board
 {
  public:
-    Boardtype& GetBoard();
+    std::vector<int>& GetBoard();
+    std::size_t PositionToIdx();
     bool IsFullRow(std::size_t idx);
     void GetFullRow();
     void UpdateBoard();
@@ -22,9 +21,12 @@ class Board
     void ClearLine();
     void DeleteLine(std::size_t idx);
 
+
  private:
+    const std::size_t width;
+    const std::size_t height;
     Game* game;
-    Boardtype board;
+    std::vector<int> board;
     std::set<std::size_t> fullIdx;
 };
 }  // namespace Tetris
