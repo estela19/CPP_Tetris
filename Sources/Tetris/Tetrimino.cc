@@ -100,6 +100,11 @@ void Tetrimino::SetType()
     type = &patterns[static_cast<int>(Ttype)][static_cast<int>(Rtype)][0];
 }
 
+const Point* Tetrimino::GetType() const
+{
+    return type;
+}
+
 Point Tetrimino::GetPos()
 {
     return Pos;

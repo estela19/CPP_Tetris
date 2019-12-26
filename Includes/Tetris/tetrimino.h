@@ -24,6 +24,7 @@ class Tetrimino
     bool IsValid();
     
     void SetType();
+    const Point* GetType() const;
     Point GetPos();
     TetriminoType GetTType();
     RotateType GetRType();

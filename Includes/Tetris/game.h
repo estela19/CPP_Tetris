@@ -13,6 +13,16 @@ class Tetrimino;
 class Game
 {
  public:
+    Game();
+    void Run();
+    void EndTurn();
+    void NextStage();
+
+    bool IsCleard();
+    bool IsGameOver();
+    void SetminY(Tetrimino& tetrimino);
+    void UpdateBoard();
+
     std::vector<Tetrimino*> blocks;
     std::size_t GetScore();
     void SetScore(std::size_t score);
@@ -23,8 +33,11 @@ class Game
     bool GetIsPause();
     void SetIsPause(bool pause);
 
-
     Board& GetBoard();
+
+    void SetMinY(Tetrimino& tetrimino);
+//    int GetMinY();
+    
     std::size_t GetOriginX();
     std::size_t GetOriginY();
     std::size_t GetWidth();
@@ -39,6 +52,8 @@ class Game
     std::size_t level_;
     bool isPause;
     std::size_t clearCnt;
+
+    int minBlockPosY = height_;
 
     std::size_t originX = 0;
     std::size_t originY = 2;

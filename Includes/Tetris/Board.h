@@ -14,7 +14,8 @@ class Board
 {
  public:
     Board(std::size_t width, std::size_t height);
-    std::vector<TetriminoType>& GetBoard();
+    std::vector<TetriminoType>& Getboard();
+    TetriminoType& Getboard(std::size_t y, std::size_t x);
     std::size_t PositionToIdx(std::size_t y, std::size_t x);
     bool IsFullRow(std::size_t idx);
     void GetFullRow();

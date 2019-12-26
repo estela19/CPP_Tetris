@@ -2,6 +2,66 @@
 
 namespace Tetris
 {
+void Game::Run()
+{
+}
+
+void Game::EndTurn()
+{
+}
+
+void Game::NextStage()
+{
+}
+
+bool Game::IsCleard()
+{
+    if (clearCnt == 10)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool Game::IsGameOver()
+{
+    if (minBlockPosY <= originY)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+void Game::SetminY(Tetrimino& tetrimino)
+{
+    int minY = 1000;
+    for (int i = 0; i < 4; i++)
+    {
+        int tetriY = (tetrimino.GetType() + i)->GetY();
+        minY = (minY < tetriY ? minY : tetriY);
+    }
+    minBlockPosY = (minY < minBlockPosY ? minY : minBlockPosY);
+}
+
+/*
+int Game::GetMinY()
+{
+    return minBlockPosY;
+}
+*/
+
+/*
+void Game::UpdateBoard()
+{
+}
+*/
+
 std::size_t Game::GetScore()
 {
     return score_;

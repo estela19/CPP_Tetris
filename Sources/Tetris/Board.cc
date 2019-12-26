@@ -7,9 +7,14 @@ Board::Board(std::size_t width, std::size_t height)
 {
 }
 
-std::vector<int>& Board::GetBoard()
+std::vector<TetriminoType>& Board::Getboard()
 {
     return board;
+}
+
+TetriminoType& Board::Getboard(std::size_t y, std::size_t x)
+{
+    return board[PositionToIdx(y, x)];
 }
 
 std::size_t Board::PositionToIdx(std::size_t y, std::size_t x)
@@ -22,7 +27,7 @@ bool Board::IsFullRow(std::size_t idx)
     bool isfull = true;
     for (std::size_t i = 0; i < game->GetWidth(); i++)
     {
-        if (!!(board[PositionToIdx(idx, i)]) == 1)
+        if (board[PositionToIdx(idx, i)] == TetriminoType::NONE)
         {
             isfull = false;
             break;
@@ -66,7 +71,7 @@ void Board::ClearLine(std::size_t idx)
 {
     for (std::size_t i = 0; i < width_; i++)
     {
-        board[PositionToIdx(idx, i)] = 0;
+        board[PositionToIdx(idx, i)] = TetriminoType::NONE;
     }
 }
 }  // namespace Tetris

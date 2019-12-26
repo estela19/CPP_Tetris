@@ -19,7 +19,6 @@ namespace Tetris
 {
 void Screen::TypeToColor()
 {
-
 }
 
 void Screen::PrintBoard()
@@ -40,7 +39,45 @@ void Screen::PrintBoard()
     }
 
     // Print board
-    auto& sboard = Game::GetBoard();
+    Board& pboard = GetGame().GetBoard();
+    for (std::size_t i = 1; i <= width_; i++)
+    {
+        for (std::size_t j = 1; j <= height_; j++)
+        {
+            std::size_t x = originX + i;
+            std::size_t y = originY + j;
+
+            Point::GotoScrXY(x, y);
+            if (pboard.Getboard(y, x) == TetriminoType::I)
+            {
+                DARK_BLUE std::cout << "бс";
+            }
+            else if (pboard.Getboard(y, x) == TetriminoType::J)
+            {
+                GREEN std::cout << "бс";
+            }
+            else if (pboard.Getboard(y, x) == TetriminoType::L)
+            {
+                PURPLE std::cout << "бс";
+            }
+            else if (pboard.Getboard(y, x) == TetriminoType::O)
+            {
+                SKY_BLUE std::cout << "бс";
+            }
+            else if (pboard.Getboard(y, x) == TetriminoType::S)
+            {
+                RED std::cout << "бс";
+            }
+            else if (pboard.Getboard(y, x) == TetriminoType::T)
+            {
+                PLUM std::cout << "бс";
+            }
+            else if (pboard.Getboard(y, x) == TetriminoType::Z)
+            {
+                YELLOW std::cout << "бс";
+            }
+        }
+    }
 }
 
 void Screen::PrintBlocks(Tetrimino& tetrimino)
@@ -86,5 +123,10 @@ void Screen::PrintBlocks(Tetrimino& tetrimino)
             }
         }
     }
+}
+
+Game& Screen::GetGame()
+{
+    return *game;
 }
 }  // namespace Tetris

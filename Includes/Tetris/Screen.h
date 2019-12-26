@@ -13,6 +13,8 @@ class Screen
     void PrintBoard();
     void PrintBlocks(Tetrimino& tetrimino);
 
+    Game& GetGame();
+
  private:
     std::size_t originX = 0;
     std::size_t originY = 2;
@@ -23,7 +25,7 @@ class Screen
     const std::size_t scrwidth_ = width_ + 1;
     const std::size_t scrheight_ = height_ + 1;
 
-    friend Game;
+    Game* game;
 };
 }  // namespace Tetris
 
