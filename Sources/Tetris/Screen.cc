@@ -17,8 +17,14 @@
 
 namespace Tetris
 {
+void Screen::TypeToColor()
+{
+
+}
+
 void Screen::PrintBoard()
 {
+    // Print board struct
     for (std::size_t i = 0; i < height_; i++)
     {
         Point::GotoScrXY(originX, originY + i);
@@ -32,6 +38,9 @@ void Screen::PrintBoard()
         Point::GotoScrXY(originX + i, originY + height_);
         std::cout << "¢É";
     }
+
+    // Print board
+    auto& sboard = Game::GetBoard();
 }
 
 void Screen::PrintBlocks(Tetrimino& tetrimino)

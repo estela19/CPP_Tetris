@@ -9,6 +9,7 @@ namespace Tetris
 class Screen
 {
  public:
+    void TypeToColor();
     void PrintBoard();
     void PrintBlocks(Tetrimino& tetrimino);
 

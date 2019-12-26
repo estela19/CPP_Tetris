@@ -21,6 +21,7 @@ class Tetrimino
     void MoveRight();
     void GoFloor();
     void Rotate();
+    bool IsValid();
     
     void SetType();
     Point GetPos();

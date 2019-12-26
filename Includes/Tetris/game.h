@@ -8,6 +8,7 @@
 
 namespace Tetris
 {
+class Board;
 class Tetrimino;
 class Game
 {
@@ -22,6 +23,8 @@ class Game
     bool GetIsPause();
     void SetIsPause(bool pause);
 
+
+    Board& GetBoard();
     std::size_t GetOriginX();
     std::size_t GetOriginY();
     std::size_t GetWidth();
@@ -30,6 +33,8 @@ class Game
     std::size_t GetScrHeight();
 
  private:
+    Board* board;
+
     std::size_t score_;
     std::size_t level_;
     bool isPause;

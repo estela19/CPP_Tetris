@@ -42,6 +42,11 @@ void Game::SetIsPause(bool pause)
     isPause = pause;
 }
 
+Board& Game::GetBoard()
+{
+    return *board;
+}
+
 std::size_t Game::GetOriginX()
 {
     return originX;

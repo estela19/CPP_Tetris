@@ -14,34 +14,85 @@ Board& Tetrimino::GetBoard()
 
 void Tetrimino::MoveDown()
 {
+    Pos.SetY(Pos.GetY() + 1);
+
+    if (!IsValid())
+    {
+        Pos.SetY(Pos.GetY() - 1);
+    }
 }
 
 void Tetrimino::MoveLeft()
 {
-    std::size_t minX = game->GetOriginX();
+    Pos.SetX(Pos.GetX() - 1);
 
-    if (Pos.GetX() > minX + 1)
-    {
-        Pos.SetX(Pos.GetX() - 1);
-    }
-}
-
-void Tetrimino::MoveRight()
-{
-    std::size_t maxX = game->GetOriginX() + game->GetScrWidth();
-
-    if (Pos.GetX() < maxX - 1)
+    if (!IsValid())
     {
         Pos.SetX(Pos.GetX() + 1);
     }
 }
 
+void Tetrimino::MoveRight()
+{
+    Pos.SetX(Pos.GetX() + 1);
+
+    if (!IsValid())
+    {
+        Pos.SetX(Pos.GetX() - 1);
+    }
+}
+
 void Tetrimino::GoFloor()
 {
+    do
+    {
+        MoveDown();
+    } while (IsValid());
 }
 
 void Tetrimino::Rotate()
 {
+    RotateType nowtype = Rtype;
+
+    if (Rtype == RotateType::LEFT)
+    {
+        Rtype = RotateType::UP;
+    }
+    else
+    {
+        int tmp = static_cast<int>(Rtype);
+        Rtype = static_cast<RotateType>(tmp++);
+    }
+
+    if (!IsValid())
+    {
+        Rtype = nowtype;
+    }
+}
+
+bool Tetrimino::IsValid()
+{
+    std::size_t minX = game->GetOriginX();
+    std::size_t maxX = game->GetOriginX() + game->GetScrWidth();
+    std::size_t maxY = game->GetOriginY() + game->GetScrHeight();
+
+    Point tmp(Pos);
+    for (int i = 0; i < 4; i++)
+    {
+        tmp.SetX(tmp.GetX() + (type + i)->GetX());
+        tmp.SetY(tmp.GetY() + (type + i)->GetY());
+        if (board->PositionToIdx(tmp.GetX(), tmp.GetY()) != 0)
+        {
+            return false;
+        }
+
+        else if (tmp.GetX() <= minX || tmp.GetX() >= maxX || tmp.GetY() >= maxY)
+        {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 void Tetrimino::SetType()
