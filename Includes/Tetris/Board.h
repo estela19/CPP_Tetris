@@ -1,6 +1,7 @@
 #ifndef _TETRIS_BOARD_H_
 #define _TETRIS_BOARD_H_
 
+#include <Tetris/Enums.h>
 #include <Tetris/Game.h>
 
 #include <vector>
@@ -13,7 +14,7 @@ class Board
 {
  public:
     Board(std::size_t width, std::size_t height);
-    std::vector<int>& GetBoard();
+    std::vector<TetriminoType>& GetBoard();
     std::size_t PositionToIdx(std::size_t y, std::size_t x);
     bool IsFullRow(std::size_t idx);
     void GetFullRow();
@@ -26,8 +27,9 @@ class Board
     const std::size_t width_;
     const std::size_t height_;
     Game* game;
-    std::vector<int> board;
+    std::vector<TetriminoType> board;
     std::set<std::size_t> fullIdx;
+
 };
 }  // namespace Tetris
 
