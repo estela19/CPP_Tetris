@@ -8,21 +8,25 @@ namespace Tetris
 {
 Tetrimino::Tetrimino()
 {
-    Ttype = static_cast<TetriminoType>(Random::get(0, 6));
+    Ttype = TetriminoType::I;
+    //   Ttype = static_cast<TetriminoType>(Random::get(0, 6));
     Rtype = static_cast<RotateType>(Random::get(1, 4));
     Pos.SetX(Game::width_ / 2);
-    Pos.SetY(0);
+    Pos.SetY(2);
     SetType();
 }
 
-void Tetrimino::MoveDown()
+bool Tetrimino::MoveDown()
 {
     Pos.SetY(Pos.GetY() + 1);
 
     if (!IsValid())
     {
         Pos.SetY(Pos.GetY() - 1);
+        return false;
     }
+
+    return true;
 }
 
 void Tetrimino::MoveLeft()
@@ -47,10 +51,10 @@ void Tetrimino::MoveRight()
 
 void Tetrimino::GoFloor()
 {
-    do
+    Pos.SetY(Pos.GetY() + 1);
+    while (MoveDown())
     {
-        MoveDown();
-    } while (IsValid());
+    }
 }
 
 void Tetrimino::Rotate()
@@ -78,7 +82,7 @@ void Tetrimino::Rotate()
 bool Tetrimino::IsValid()
 {
     std::size_t minX = 0;
-    std::size_t maxX = Game::Get().GetScrWidth();
+    std::size_t maxX = Game::Get().GetWidth();
     std::size_t maxY = Game::Get().GetHeight();
 
     // 내 왼쪽이 꽉찬 보드일때도 테트리미노가 끝난걸로 판정될 수 있음
@@ -87,14 +91,14 @@ bool Tetrimino::IsValid()
         Point tmp(Pos);
         tmp.SetX(tmp.GetX() + (type + i)->GetX());
         tmp.SetY(tmp.GetY() + (type + i)->GetY());
-       
+
         if (tmp.GetY() >= maxY)
         {
             Game::Get().SetIsFloor(true);
             return false;
         }
 
-        else if (tmp.GetX() <= minX || tmp.GetX() >= maxX)
+        else if (tmp.GetX() < minX || tmp.GetX() >= maxX)
         {
             return false;
         }

@@ -14,7 +14,7 @@ class Tetrimino
  public:
     Tetrimino();
     ~Tetrimino() = default;
-    void MoveDown();
+    bool MoveDown();
     void MoveLeft();
     void MoveRight();
     void GoFloor();
