@@ -35,15 +35,19 @@ void Screen::PrintBoard()
         ORIGINAL std::cout << "¢É";
     }
 
+    Point::GotoScrXY(15, 5);
+    ORIGINAL std::cout << "Score : " << Game::Get().GetScore();
+    Point::GotoScrXY(15, 7);
+    ORIGINAL std::cout << "Level : " << Game::Get().GetLevel();
+    Point::GotoScrXY(15, 9);
+    ORIGINAL std::cout << "Clear Lines : " << Game::Get().GetClearCnt();
+
     // Print board
     Board& pboard = Game::Get().GetBoard();
     for (std::size_t i = 0; i < Game::width_; i++)
     {
         for (std::size_t j = 0; j < Game::height_; j++)
         {
-            //   std::size_t x = i + 1;
-            //   std::size_t y = j + 1;
-
             Point::GotoScrXY(i + 1, j);
             if (pboard.Getboard(j, i) == TetriminoType::I)
             {

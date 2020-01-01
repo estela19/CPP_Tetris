@@ -1,9 +1,9 @@
 #ifndef _TETRIS_GAME_H_
 #define _TETRIS_GAME_H_
 
+#include <time.h>
 #include <iostream>
 #include <vector>
-#include <time.h>
 
 #include <Tetris/Board.h>
 #include <Tetris/Tetrimino.h>
@@ -28,14 +28,15 @@ class Game
     void MoveTetrimino();
 
     void GetKey();
-    static clock_t GetDeltaTime();
+    static clock_t GetDeltaTime(clock_t& pretime);
+    void Game::LineToScore(std::size_t lines);
 
     std::size_t GetScore();
-    void SetScore(std::size_t score);
+    void AddScore(std::size_t score);
     std::size_t GetLevel();
     void SetLevel(std::size_t level);
     std::size_t GetClearCnt();
-    void SetClearCnt(std::size_t cnt);
+    void AddClearCnt(std::size_t cnt);
     bool GetIsPause();
     void SetIsPause(bool pause);
     void SetIsFloor(bool floor);
@@ -52,7 +53,10 @@ class Game
     std::size_t GetScrWidth();
     std::size_t GetScrHeight();
 
- public:
+ private:
+    void SetCursorInvisible();
+ 
+public:
     static const std::size_t originX;
     static const std::size_t originY;
     static const std::size_t width_;
@@ -66,7 +70,7 @@ class Game
     Tetrimino* tetrimino;
 
     std::size_t score_;
-    std::size_t level_;
+    std::size_t level_ = 1;
     bool isPause = false;
     std::size_t clearCnt = 0;
     bool isFloor = false;

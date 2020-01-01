@@ -77,7 +77,8 @@ void Board::UpdateLines()
             k++;
         }
     }
-    Game::Get().SetClearCnt(size);
+    Game::Get().AddClearCnt(size);
+    Game::Get().LineToScore(size);
     fullIdx.clear();
 }
 

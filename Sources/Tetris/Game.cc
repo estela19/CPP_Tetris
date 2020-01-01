@@ -13,6 +13,7 @@ Game& Game::Get()
 
 void Game::Run()
 {
+    SetCursorInvisible();
     while (true)
     {
         StartTurn();
@@ -24,7 +25,7 @@ void Game::Run()
 
         if (isGameOver == true)
         {
-            break;        
+            break;
         }
     }
 }
@@ -49,13 +50,15 @@ void Game::ProcessTurn()
     }
 
     //시간 넘어가면 godown
+    static clock_t pretime = 0;
 
-    double tmp = GetDeltaTime();
-    if (tmp > (1 - level_ * 0.2))
+    double tmp = GetDeltaTime(pretime);
+    if (tmp > 0.8 - level_ * 0.2)
     {
         Screen::PrintSpace(*tetrimino);
         tetrimino->MoveDown();
         Screen::PrintBlocks(*tetrimino);
+        pretime = clock();
     }
 }
 
@@ -195,13 +198,29 @@ void Game::GetKey()
     }
 }
 
-clock_t Game::GetDeltaTime()
+clock_t Game::GetDeltaTime(clock_t& pretime)
 {
-    static clock_t pretime, nowtime;
-    pretime = nowtime;
-    nowtime = clock();
+    return static_cast<double>((clock() - pretime) / CLOCKS_PER_SEC);
+}
 
-    return static_cast<double>((nowtime - pretime) / CLOCKS_PER_SEC);
+void Game::LineToScore(std::size_t lines)
+{
+    if (lines == 1)
+    {
+        AddScore(100);
+    }
+    else if (lines == 2)
+    {
+        AddScore(200);
+    }
+    else if (lines == 3)
+    {
+        AddScore(500);
+    }
+    else if (lines == 4)
+    {
+        AddScore(1000);
+    }
 }
 
 std::size_t Game::GetScore()
@@ -209,9 +228,9 @@ std::size_t Game::GetScore()
     return score_;
 }
 
-void Game::SetScore(std::size_t score)
+void Game::AddScore(std::size_t score)
 {
-    score_ = score;
+    score_ += score;
 }
 
 std::size_t Game::GetLevel()
@@ -229,9 +248,9 @@ std::size_t Game::GetClearCnt()
     return clearCnt;
 }
 
-void Game::SetClearCnt(std::size_t cnt)
+void Game::AddClearCnt(std::size_t cnt)
 {
-    clearCnt = cnt;
+    clearCnt += cnt;
 }
 
 bool Game::GetIsPause()
@@ -287,6 +306,12 @@ std::size_t Game::GetScrWidth()
 std::size_t Game::GetScrHeight()
 {
     return scrheight_;
+}
+
+void Game::SetCursorInvisible() 
+{
+    CONSOLE_CURSOR_INFO ci = { 10, FALSE };
+    SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &ci);
 }
 
 const std::size_t Game::originX = 0;
