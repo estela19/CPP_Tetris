@@ -11,6 +11,7 @@ namespace Tetris
 class Point
 {
  public:
+    Point();
     Point(int x, int y);
 
     int GetX() const;
@@ -24,7 +25,7 @@ class Point
 //    static void GotoXY(const int& x, const int& y);
     static void GotoXY(Point pos);
     static void GotoScrXY(int x, int y);
-    static Point GetScrPosFromCurPos(const Point &pos);
+    static Point BoardToScr(const Point &pos);
 
  private:
     int x_;

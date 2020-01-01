@@ -5,17 +5,15 @@
 #include <Tetris/Point.h>
 #include <Tetris/Enums.h>
 #include <Tetris/Pattern.h>
-#include <Tetris/Game.h>
 
 namespace Tetris
 {
-class Game;
 class Board;
 class Tetrimino
 {
  public:
-    Game& GetGame();
-    Board& GetBoard();
+    Tetrimino();
+    ~Tetrimino() = default;
     void MoveDown();
     void MoveLeft();
     void MoveRight();
@@ -31,12 +29,9 @@ class Tetrimino
 
 
  private:
-    Game* game;
-    Board* board;
     const Point* type;
     TetriminoType Ttype;
     RotateType Rtype;
-    bool isfloor = false;
     Point Pos;
 };
 }  // namespace Tetris

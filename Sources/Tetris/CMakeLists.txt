@@ -4,7 +4,9 @@ set(target Tetris)
 # Sources
 file(GLOB_RECURSE sources ${CMAKE_CURRENT_SOURCE_DIR}/*.cc)
 
-add_library(${target} STATIC ${sources})
+add_executable(${target} ${sources})
+
+target_compile_definitions(${target} PUBLIC NOMINMAX)
 
 target_compile_options(${target}
     PRIVATE

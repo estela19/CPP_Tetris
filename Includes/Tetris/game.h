@@ -3,27 +3,34 @@
 
 #include <iostream>
 #include <vector>
+#include <time.h>
 
+#include <Tetris/Board.h>
 #include <Tetris/Tetrimino.h>
 
 namespace Tetris
 {
-class Board;
 class Tetrimino;
 class Game
 {
  public:
-    Game();
+    static Game& Get();
     void Run();
+    void StartTurn();
+    void ProcessTurn();
     void EndTurn();
-    void NextStage();
 
+    void NextStage();
     bool IsCleard();
     bool IsGameOver();
     void SetminY(Tetrimino& tetrimino);
     void UpdateBoard();
+    void MoveTetrimino();
 
-    std::vector<Tetrimino*> blocks;
+    void GetKey();
+    static clock_t GetDeltaTime();
+
+    //   std::vector<Tetrimino*> blocks;
     std::size_t GetScore();
     void SetScore(std::size_t score);
     std::size_t GetLevel();
@@ -32,12 +39,14 @@ class Game
     void SetClearCnt(std::size_t cnt);
     bool GetIsPause();
     void SetIsPause(bool pause);
+    void SetIsFloor(bool floor);
+    void SetTetrimino(Tetrimino* ttetrimino);
 
     Board& GetBoard();
 
     void SetMinY(Tetrimino& tetrimino);
-//    int GetMinY();
-    
+    //    int GetMinY();
+
     std::size_t GetOriginX();
     std::size_t GetOriginY();
     std::size_t GetWidth();
@@ -45,22 +54,27 @@ class Game
     std::size_t GetScrWidth();
     std::size_t GetScrHeight();
 
- private:
-    Board* board;
+ public:
+    static std::size_t originX;
+    static std::size_t originY;
+    static const std::size_t width_;
+    static const std::size_t height_;
+    static const std::size_t scrwidth_;
+    static const std::size_t scrheight_;
 
-    std::size_t score_;
-    std::size_t level_;
-    bool isPause;
-    std::size_t clearCnt;
+ private:
+    Game() = default;
+    Board board;
+    Tetrimino* tetrimino;
+
+    std::size_t score_ = 0;
+    std::size_t level_ = 1;
+    bool isPause = false;
+    std::size_t clearCnt = 0;
+    bool isFloor = false;
+    KeyType pushKey = KeyType::INVALID;
 
     int minBlockPosY = height_;
-
-    std::size_t originX = 0;
-    std::size_t originY = 2;
-    const std::size_t width_ = 10;
-    const std::size_t height_ = 20;
-    const std::size_t scrwidth_ = width_ + 1;
-    const std::size_t scrheight_ = height_ + 1;
 };
 }  // namespace Tetris
 

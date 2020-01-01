@@ -1,13 +1,14 @@
-#include<iostream>
+#include <iostream>
 
-#include<Tetris/Board.h>
-#include<Tetris/Game.h>
-#include<Tetris/screen.h>
+#include <Tetris/Game.h>
+#include <Tetris/Board.h>
+#include <Tetris/screen.h>
 
 using namespace Tetris;
 
-int main() {
-    Screen s;
-    s.PrintBoard();
+int main()
+{
+    Game::Get().Run();
+
     return 0;
 }

@@ -5,14 +5,14 @@ namespace Tetris
 {
 enum class TetriminoType
 {
-    NONE,
     I,
     J,
     L,
     O,
     S,
     T,
-    Z
+    Z,
+    NONE
 };
 
 enum class RotateType
@@ -20,7 +20,7 @@ enum class RotateType
     UP,
     RIGHT,
     DOWN,
-    LEFT
+    LEFT,
 };
 
 enum class Color
@@ -36,11 +36,13 @@ enum class Color
 
 enum class KeyType
 {
+    INVALID,
     UP,
     Down,
     LEFT,
     RIGHT,
-    SPACE
+    SPACE,
+    ESC
 };
 }  // namespace Tetris
 #endif  // !TETRIS_ENUMS_H

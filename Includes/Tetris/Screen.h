@@ -4,28 +4,16 @@
 #include <Tetris/Point.h>
 #include <Tetris/Tetrimino.h>
 
+
 namespace Tetris
 {
 class Screen
 {
  public:
-    void TypeToColor();
-    void PrintBoard();
-    void PrintBlocks(Tetrimino& tetrimino);
+    static void PrintBoard();
+    static void PrintBlocks(Tetrimino& tetrimino);
+    static void PrintSpace(Tetrimino& tetrimino);
 
-    Game& GetGame();
-
- private:
-    std::size_t originX = 0;
-    std::size_t originY = 2;
-    
-    const std::size_t width_ = 10;
-    const std::size_t height_ = 20;
-
-    const std::size_t scrwidth_ = width_ + 1;
-    const std::size_t scrheight_ = height_ + 1;
-
-    Game* game;
 };
 }  // namespace Tetris
 

@@ -2,32 +2,29 @@
 #define _TETRIS_BOARD_H_
 
 #include <Tetris/Enums.h>
-#include <Tetris/Game.h>
+#include <Tetris/Point.h>
 
 #include <vector>
 #include <set>
 
 namespace Tetris
 {
-class Game;
 class Board
 {
  public:
-    Board(std::size_t width, std::size_t height);
+    Board();
     std::vector<TetriminoType>& Getboard();
     TetriminoType& Getboard(std::size_t y, std::size_t x);
+    TetriminoType& Getboard(Point pos);
     std::size_t PositionToIdx(std::size_t y, std::size_t x);
     bool IsFullRow(std::size_t idx);
     void GetFullRow();
-    void UpdateBoard();
+    void UpdateLines();
     void ClearBoard();
     void ClearLine(std::size_t idx);
 
 
  private:
-    const std::size_t width_;
-    const std::size_t height_;
-    Game* game;
     std::vector<TetriminoType> board;
     std::set<std::size_t> fullIdx;
 

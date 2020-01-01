@@ -1,11 +1,17 @@
 #include <conio.h>
-#include <cstdlib>
 #include <windows.h>
+#include <cstdlib>
 
 #include <Tetris/Point.h>
+#include <Tetris/Game.h>
 
 namespace Tetris
 {
+Point::Point() : x_(Game::originX + Game::width_ / 2), y_(Game::originY)
+{
+    // Do nothing
+}
+
 Point::Point(int x, int y) : x_(x), y_(y)
 {
     // Do nothing
@@ -56,14 +62,15 @@ void Point::GotoXY(Point pos)
 
 void Point::GotoScrXY(int x, int y)
 {
-    int tmpX = 2 * x + 2;
-    COORD Pos = { static_cast<short>(tmpX), static_cast<short>(y) };
+    int tmpX = 2 * x + 2 + Game::originX;
+    int tmpY = y + Game::originY;
+    COORD Pos = { static_cast<short>(tmpX), static_cast<short>(tmpY) };
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
 }
 
-Point Point::GetScrPosFromCurPos(
+Point Point::BoardToScr(
     const Point& pos)  // 배열좌표를 화면좌표로 가져온다.
 {
-    return Point(2 * pos.x_ + 2, pos.y_);
+    return Point(pos.x_ + 1, pos.y_ + 1);
 }
 }  // namespace Tetris
