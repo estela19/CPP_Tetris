@@ -5,7 +5,6 @@
 #include <Tetris/Point.h>
 
 #include <vector>
-#include <set>
 
 namespace Tetris
 {
@@ -26,7 +25,7 @@ class Board
 
  private:
     std::vector<TetriminoType> board;
-    std::set<std::size_t> fullIdx;
+    std::vector<std::size_t> fullIdx;
 
 };
 }  // namespace Tetris

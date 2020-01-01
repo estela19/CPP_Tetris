@@ -24,7 +24,7 @@ TetriminoType& Board::Getboard(std::size_t y, std::size_t x)
 
 TetriminoType& Board::Getboard(Point pos)
 {
-    return board[PositionToIdx(pos.GetY() , pos.GetX())];
+    return board[PositionToIdx(pos.GetY(), pos.GetX())];
 }
 
 std::size_t Board::PositionToIdx(std::size_t y, std::size_t x)
@@ -52,7 +52,7 @@ void Board::GetFullRow()
     {
         if (IsFullRow(i) == true)
         {
-            fullIdx.insert(i);
+            fullIdx.push_back(i);
         }
     }
 }
@@ -60,9 +60,11 @@ void Board::GetFullRow()
 void Board::UpdateLines()
 {
     GetFullRow();
-    for (auto i = fullIdx.rbegin(); i != fullIdx.rend(); i++)
+    int size = fullIdx.size();
+    for (int i = 0; i < size; i++)
     {
-        std::size_t full = *i;
+        std::size_t full = fullIdx.back();
+        fullIdx.pop_back();
         for (std::size_t j = full; j > 0; j--)
         {
             for (std::size_t k = 0; k < Game::width_; k++)
@@ -70,15 +72,18 @@ void Board::UpdateLines()
                 board[PositionToIdx(j, k)] = board[PositionToIdx(j - 1, k)];
             }
         }
+        for (auto& k : fullIdx)
+        {
+            k++;
+        }
     }
-    Game::Get().SetClearCnt(fullIdx.size());
+    Game::Get().SetClearCnt(size);
     fullIdx.clear();
 }
 
 void Board::ClearBoard()
 {
     board.clear();
-    fullIdx.clear();
     std::fill(board.begin(), board.end(), TetriminoType::NONE);
 }
 
