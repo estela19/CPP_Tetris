@@ -23,7 +23,7 @@ void Screen::PrintBoard()
     // Print board struct
     for (std::size_t i = 0; i < Game::height_; i++)
     {
-        Point::GotoScrXY(0 , i);
+        Point::GotoScrXY(0, i);
         ORIGINAL std::cout << "¢É";
         Point::GotoScrXY(Game::scrwidth_, i);
         ORIGINAL std::cout << "¢É";
@@ -41,8 +41,8 @@ void Screen::PrintBoard()
     {
         for (std::size_t j = 0; j < Game::height_; j++)
         {
-         //   std::size_t x = i + 1;
-         //   std::size_t y = j + 1;
+            //   std::size_t x = i + 1;
+            //   std::size_t y = j + 1;
 
             Point::GotoScrXY(i + 1, j);
             if (pboard.Getboard(j, i) == TetriminoType::I)
@@ -132,4 +132,15 @@ void Screen::PrintSpace(Tetrimino& tetrimino)
     }
 }
 
+void Screen::PrintGameOver()
+{
+    Point::GotoScrXY(5, 25);
+    std::cout << "Game Over";
+    Point::GotoScrXY(5, 37);
+    std::cout << "Your score is";
+    YELLOW std::cout << Game::Get().GetScore();
+    Point::GotoScrXY(5, 38);
+    std::cout << "Your Level is";
+    GREEN std::cout << Game::Get().GetLevel();
+}
 }  // namespace Tetris

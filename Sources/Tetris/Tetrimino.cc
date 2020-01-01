@@ -8,8 +8,7 @@ namespace Tetris
 {
 Tetrimino::Tetrimino()
 {
-    Ttype = TetriminoType::I;
-    //   Ttype = static_cast<TetriminoType>(Random::get(0, 6));
+    Ttype = static_cast<TetriminoType>(Random::get(0, 6));
     Rtype = static_cast<RotateType>(Random::get(1, 4));
     Pos.SetX(Game::width_ / 2);
     Pos.SetY(2);

@@ -30,7 +30,6 @@ class Game
     void GetKey();
     static clock_t GetDeltaTime();
 
-    //   std::vector<Tetrimino*> blocks;
     std::size_t GetScore();
     void SetScore(std::size_t score);
     std::size_t GetLevel();
@@ -45,7 +44,6 @@ class Game
     Board& GetBoard();
 
     void SetMinY(Tetrimino& tetrimino);
-    //    int GetMinY();
 
     std::size_t GetOriginX();
     std::size_t GetOriginY();
@@ -55,8 +53,8 @@ class Game
     std::size_t GetScrHeight();
 
  public:
-    static std::size_t originX;
-    static std::size_t originY;
+    static const std::size_t originX;
+    static const std::size_t originY;
     static const std::size_t width_;
     static const std::size_t height_;
     static const std::size_t scrwidth_;
@@ -67,11 +65,12 @@ class Game
     Board board;
     Tetrimino* tetrimino;
 
-    std::size_t score_ = 0;
-    std::size_t level_ = 1;
+    std::size_t score_;
+    std::size_t level_;
     bool isPause = false;
     std::size_t clearCnt = 0;
     bool isFloor = false;
+    bool isGameOver = false;
     KeyType pushKey = KeyType::INVALID;
 
     int minBlockPosY = height_;

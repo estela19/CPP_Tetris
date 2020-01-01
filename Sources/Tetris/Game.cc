@@ -21,6 +21,11 @@ void Game::Run()
             ProcessTurn();
         }
         EndTurn();
+
+        if (isGameOver == true)
+        {
+            break;        
+        }
     }
 }
 
@@ -30,9 +35,7 @@ void Game::StartTurn()
     tetrimino = new Tetrimino;
     system("cls");
     Screen::PrintBoard();
-
-    //현재시간설정
-    //    GetDeltaTime();
+    Screen::PrintBlocks(*tetrimino);
 }
 
 void Game::ProcessTurn()
@@ -46,7 +49,7 @@ void Game::ProcessTurn()
     }
 
     //시간 넘어가면 godown
-    /*
+
     double tmp = GetDeltaTime();
     if (tmp > (1 - level_ * 0.2))
     {
@@ -54,7 +57,6 @@ void Game::ProcessTurn()
         tetrimino->MoveDown();
         Screen::PrintBlocks(*tetrimino);
     }
-    */
 }
 
 void Game::EndTurn()
@@ -68,7 +70,8 @@ void Game::EndTurn()
 
     if (IsGameOver())
     {
-        //끝나는 화면
+        Screen::PrintGameOver();
+        isGameOver = true;
     }
 }
 
@@ -113,13 +116,6 @@ void Game::SetminY(Tetrimino& tetrimino)
     }
     minBlockPosY = (minY < minBlockPosY ? minY : minBlockPosY);
 }
-
-/*
-int Game::GetMinY()
-{
-    return minBlockPosY;
-}
-*/
 
 void Game::UpdateBoard()
 {
@@ -293,8 +289,8 @@ std::size_t Game::GetScrHeight()
     return scrheight_;
 }
 
-std::size_t Game::originX = 0;
-std::size_t Game::originY = 2;
+const std::size_t Game::originX = 0;
+const std::size_t Game::originY = 2;
 const std::size_t Game::width_ = 10;
 const std::size_t Game::height_ = 20;
 const std::size_t Game::scrwidth_ = Game::width_ + 1;

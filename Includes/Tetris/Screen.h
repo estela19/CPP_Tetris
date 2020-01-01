@@ -13,6 +13,7 @@ class Screen
     static void PrintBoard();
     static void PrintBlocks(Tetrimino& tetrimino);
     static void PrintSpace(Tetrimino& tetrimino);
+    static void PrintGameOver();
 
 };
 }  // namespace Tetris
