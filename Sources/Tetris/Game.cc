@@ -26,11 +26,13 @@ void Game::Run()
 
 void Game::StartTurn()
 {
+    isFloor = false;
     tetrimino = new Tetrimino;
+    system("cls");
     Screen::PrintBoard();
 
     //현재시간설정
-//    GetDeltaTime();
+    //    GetDeltaTime();
 }
 
 void Game::ProcessTurn()
@@ -53,7 +55,6 @@ void Game::ProcessTurn()
         Screen::PrintBlocks(*tetrimino);
     }
     */
-
 }
 
 void Game::EndTurn()
@@ -122,8 +123,7 @@ int Game::GetMinY()
 
 void Game::UpdateBoard()
 {
-    Point tmp(tetrimino->GetPos().GetX(),
-              tetrimino->GetPos().GetY());
+    Point tmp(tetrimino->GetPos().GetX(), tetrimino->GetPos().GetY());
     for (int i = 0; i < 4; i++)
     {
         board.Getboard(tmp + *(tetrimino->GetType() + i)) =
@@ -188,6 +188,14 @@ void Game::GetKey()
     else if (ch == 336)
     {
         pushKey = KeyType::Down;
+    }
+    else if (ch == 32)
+    {
+        pushKey = KeyType::SPACE;
+    }
+    else
+    {
+        pushKey = KeyType::INVALID;
     }
 }
 

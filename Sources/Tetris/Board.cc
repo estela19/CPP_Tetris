@@ -59,6 +59,7 @@ void Board::GetFullRow()
 
 void Board::UpdateLines()
 {
+    GetFullRow();
     for (auto i = fullIdx.rbegin(); i != fullIdx.rend(); i++)
     {
         std::size_t full = *i;
