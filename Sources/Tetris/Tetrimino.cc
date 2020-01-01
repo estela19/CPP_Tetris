@@ -17,14 +17,17 @@ Tetrimino::Tetrimino()
 
 bool Tetrimino::MoveDown()
 {
+    isdown = true;
     Pos.SetY(Pos.GetY() + 1);
 
     if (!IsValid())
     {
+        isdown = false;
         Pos.SetY(Pos.GetY() - 1);
         return false;
     }
 
+    isdown = false;
     return true;
 }
 
@@ -104,7 +107,10 @@ bool Tetrimino::IsValid()
 
         else if (Game::Get().GetBoard().Getboard(tmp) != TetriminoType::NONE)
         {
-            Game::Get().SetIsFloor(true);
+            if (isdown)
+            {
+                Game::Get().SetIsFloor(true);
+            }
             return false;
         }
     }

@@ -2,9 +2,9 @@
 #define _TETRIS_TETRIMINO_H_
 
 #include <Tetris/Board.h>
-#include <Tetris/Point.h>
 #include <Tetris/Enums.h>
 #include <Tetris/Pattern.h>
+#include <Tetris/Point.h>
 
 namespace Tetris
 {
@@ -20,19 +20,19 @@ class Tetrimino
     void GoFloor();
     void Rotate();
     bool IsValid();
-    
+
     void SetType();
     const Point* GetType() const;
     Point GetPos();
     TetriminoType GetTType();
     RotateType GetRType();
 
-
  private:
     const Point* type;
     TetriminoType Ttype;
     RotateType Rtype;
     Point Pos;
+    bool isdown;
 };
 }  // namespace Tetris
 
