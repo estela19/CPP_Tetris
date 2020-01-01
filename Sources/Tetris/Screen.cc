@@ -24,15 +24,15 @@ void Screen::PrintBoard()
     for (std::size_t i = 0; i < Game::height_; i++)
     {
         Point::GotoScrXY(0 , i);
-        std::cout << "¢É";
+        ORIGINAL std::cout << "¢É";
         Point::GotoScrXY(Game::scrwidth_, i);
-        std::cout << "¢É";
+        ORIGINAL std::cout << "¢É";
     }
 
     for (std::size_t i = 0; i <= Game::scrwidth_; i++)
     {
         Point::GotoScrXY(i, Game::height_);
-        std::cout << "¢É";
+        ORIGINAL std::cout << "¢É";
     }
 
     // Print board
@@ -41,10 +41,10 @@ void Screen::PrintBoard()
     {
         for (std::size_t j = 0; j < Game::height_; j++)
         {
-            std::size_t x = i + 1;
-            std::size_t y = j + 1;
+         //   std::size_t x = i + 1;
+         //   std::size_t y = j + 1;
 
-            Point::GotoScrXY(x, y);
+            Point::GotoScrXY(i + 1, j);
             if (pboard.Getboard(j, i) == TetriminoType::I)
             {
                 DARK_BLUE std::cout << "¡á";
@@ -82,7 +82,7 @@ void Screen::PrintBlocks(Tetrimino& tetrimino)
     for (int i = 0; i < 4; i++)
     {
         Point::GotoScrXY(
-            tetrimino.GetPos().GetX() + (tetrimino.GetType() + i)->GetX(),
+            tetrimino.GetPos().GetX() + (tetrimino.GetType() + i)->GetX() + 1,
             tetrimino.GetPos().GetY() + (tetrimino.GetType() + i)->GetY());
 
         if (tetrimino.GetTType() == TetriminoType::I)
@@ -125,7 +125,7 @@ void Screen::PrintSpace(Tetrimino& tetrimino)
     for (int i = 0; i < 4; i++)
     {
         Point::GotoScrXY(
-            tetrimino.GetPos().GetX() + (tetrimino.GetType() + i)->GetX(),
+            tetrimino.GetPos().GetX() + (tetrimino.GetType() + i)->GetX() + 1,
             tetrimino.GetPos().GetY() + (tetrimino.GetType() + i)->GetY());
 
         std::cout << (" ");
