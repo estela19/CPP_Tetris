@@ -223,7 +223,7 @@ void Game::LineToScore(std::size_t lines)
     }
 }
 
-std::size_t Game::GetScore()
+std::size_t Game::GetScore() const
 {
     return score_;
 }
@@ -233,7 +233,7 @@ void Game::AddScore(std::size_t score)
     score_ += score;
 }
 
-std::size_t Game::GetLevel()
+std::size_t Game::GetLevel() const
 {
     return level_;
 }
@@ -243,7 +243,7 @@ void Game::SetLevel(std::size_t level)
     level_ = level;
 }
 
-std::size_t Game::GetClearCnt()
+std::size_t Game::GetClearCnt() const
 {
     return clearCnt;
 }
@@ -253,7 +253,7 @@ void Game::AddClearCnt(std::size_t cnt)
     clearCnt += cnt;
 }
 
-bool Game::GetIsPause()
+bool Game::GetIsPause() const
 {
     return isPause;
 }
@@ -278,32 +278,32 @@ Board& Game::GetBoard()
     return board;
 }
 
-std::size_t Game::GetOriginX()
+std::size_t Game::GetOriginX() const
 {
     return originX;
 }
 
-std::size_t Game::GetOriginY()
+std::size_t Game::GetOriginY() const
 {
     return originY;
 }
 
-std::size_t Game::GetWidth()
+std::size_t Game::GetWidth() const
 {
     return width_;
 }
 
-std::size_t Game::GetHeight()
+std::size_t Game::GetHeight() const
 {
     return height_;
 }
 
-std::size_t Game::GetScrWidth()
+std::size_t Game::GetScrWidth() const
 {
     return scrwidth_;
 }
 
-std::size_t Game::GetScrHeight()
+std::size_t Game::GetScrHeight() const
 {
     return scrheight_;
 }

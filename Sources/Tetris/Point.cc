@@ -42,7 +42,7 @@ Point Point::operator+(const Point& pt) const
     return Point(x_ + pt.x_, y_ + pt.y_);
 }
 
-void Point::GotoXY(int x, int y)  // 커서 위치 이동
+void Point::GotoXY(int x, int y) 
 {
     COORD Pos = { static_cast<short>(x), static_cast<short>(y) };
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);

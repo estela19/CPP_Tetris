@@ -81,7 +81,7 @@ void Screen::PrintBoard()
     }
 }
 
-void Screen::PrintBlocks(Tetrimino& tetrimino)
+void Screen::PrintBlocks(const Tetrimino& tetrimino)
 {
     for (int i = 0; i < 4; i++)
     {
@@ -124,7 +124,7 @@ void Screen::PrintBlocks(Tetrimino& tetrimino)
     }
 }
 
-void Screen::PrintSpace(Tetrimino& tetrimino)
+void Screen::PrintSpace(const Tetrimino& tetrimino)
 {
     for (int i = 0; i < 4; i++)
     {

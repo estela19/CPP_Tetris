@@ -31,13 +31,13 @@ class Game
     static clock_t GetDeltaTime(clock_t& pretime);
     void Game::LineToScore(std::size_t lines);
 
-    std::size_t GetScore();
+    std::size_t GetScore() const;
     void AddScore(std::size_t score);
-    std::size_t GetLevel();
+    std::size_t GetLevel() const;
     void SetLevel(std::size_t level);
-    std::size_t GetClearCnt();
+    std::size_t GetClearCnt() const;
     void AddClearCnt(std::size_t cnt);
-    bool GetIsPause();
+    bool GetIsPause() const;
     void SetIsPause(bool pause);
     void SetIsFloor(bool floor);
     void SetTetrimino(Tetrimino* ttetrimino);
@@ -46,12 +46,12 @@ class Game
 
     void SetMinY(Tetrimino& tetrimino);
 
-    std::size_t GetOriginX();
-    std::size_t GetOriginY();
-    std::size_t GetWidth();
-    std::size_t GetHeight();
-    std::size_t GetScrWidth();
-    std::size_t GetScrHeight();
+    std::size_t GetOriginX() const;
+    std::size_t GetOriginY() const;
+    std::size_t GetWidth() const;
+    std::size_t GetHeight() const;
+    std::size_t GetScrWidth() const;
+    std::size_t GetScrHeight() const;
 
  private:
     void SetCursorInvisible();

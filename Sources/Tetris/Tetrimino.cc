@@ -127,17 +127,17 @@ const Point* Tetrimino::GetType() const
     return type;
 }
 
-Point Tetrimino::GetPos()
+Point Tetrimino::GetPos() const
 {
     return Pos;
 }
 
-TetriminoType Tetrimino::GetTType()
+TetriminoType Tetrimino::GetTType() const
 {
     return Ttype;
 }
 
-RotateType Tetrimino::GetRType()
+RotateType Tetrimino::GetRType() const
 {
     return Rtype;
 }

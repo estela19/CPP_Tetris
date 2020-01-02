@@ -11,8 +11,8 @@ class Screen
 {
  public:
     static void PrintBoard();
-    static void PrintBlocks(Tetrimino& tetrimino);
-    static void PrintSpace(Tetrimino& tetrimino);
+    static void PrintBlocks(const Tetrimino& tetrimino);
+    static void PrintSpace(const Tetrimino& tetrimino);
     static void PrintGameOver();
 
 };

@@ -23,9 +23,9 @@ class Tetrimino
 
     void SetType();
     const Point* GetType() const;
-    Point GetPos();
-    TetriminoType GetTType();
-    RotateType GetRType();
+    Point GetPos() const;
+    TetriminoType GetTType() const;
+    RotateType GetRType() const;
 
  private:
     const Point* type;
