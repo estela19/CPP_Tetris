@@ -37,7 +37,7 @@ void Point::SetY(int y)
     y_ = y;
 }
 
-Point Point::operator+(const Point& pt)
+Point Point::operator+(const Point& pt) const
 {
     Point tmp(x_ + pt.x_, y_ + pt.y_);
     return tmp;
@@ -48,14 +48,8 @@ void Point::GotoXY(int x, int y)  // 커서 위치 이동
     COORD Pos = { static_cast<short>(x), static_cast<short>(y) };
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
 }
-/*
-void Point::GotoXY(const int& x, const int& y)
-{
-    COORD Pos = { static_cast<short>(x), static_cast<short>(y) };
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
-}
-*/
-void Point::GotoXY(Point pos)
+
+void Point::GotoXY(const Point& pos)
 {
     GotoXY(pos.GetX(), pos.GetY());
 }
@@ -68,9 +62,4 @@ void Point::GotoScrXY(int x, int y)
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
 }
 
-Point Point::BoardToScr(
-    const Point& pos)  // 배열좌표를 화면좌표로 가져온다.
-{
-    return Point(pos.x_ + 1, pos.y_ + 1);
-}
 }  // namespace Tetris

@@ -15,7 +15,7 @@ class Board
     std::vector<TetriminoType>& Getboard();
     TetriminoType& Getboard(std::size_t y, std::size_t x);
     TetriminoType& Getboard(Point pos);
-    std::size_t PositionToIdx(std::size_t y, std::size_t x);
+    std::size_t PositionToIdx(std::size_t y, std::size_t x) const;
     bool IsFullRow(std::size_t idx);
     void GetFullRow();
     void UpdateLines();

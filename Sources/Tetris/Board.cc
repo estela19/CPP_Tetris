@@ -27,7 +27,7 @@ TetriminoType& Board::Getboard(Point pos)
     return board[PositionToIdx(pos.GetY(), pos.GetX())];
 }
 
-std::size_t Board::PositionToIdx(std::size_t y, std::size_t x)
+std::size_t Board::PositionToIdx(std::size_t y, std::size_t x) const
 {
     return Game::width_ * y + x;
 }

@@ -19,13 +19,11 @@ class Point
     void SetX(int x);
     void SetY(int y);
 
-    Point operator+(const Point &pt);
+    Point operator+(const Point &pt) const;
 
     static void GotoXY(int x, int y);
-//    static void GotoXY(const int& x, const int& y);
-    static void GotoXY(Point pos);
+    static void GotoXY(const Point& pos);
     static void GotoScrXY(int x, int y);
-    static Point BoardToScr(const Point &pos);
 
  private:
     int x_;
