@@ -79,7 +79,7 @@ void Tetrimino::Rotate()
         Rtype = nowtype;
         SetType();
     }
-}
+} 
 
 bool Tetrimino::IsValid()
 {
@@ -87,7 +87,6 @@ bool Tetrimino::IsValid()
     std::size_t maxX = Game::Get().GetWidth();
     std::size_t maxY = Game::Get().GetHeight();
 
-    // 내 왼쪽이 꽉찬 보드일때도 테트리미노가 끝난걸로 판정될 수 있음
     for (int i = 0; i < 4; i++)
     {
         Point tmp(Pos);
