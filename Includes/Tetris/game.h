@@ -21,8 +21,8 @@ class Game
     void EndTurn();
 
     void NextStage();
-    bool IsCleard();
-    bool IsGameOver();
+    bool IsCleard() const;
+    bool IsGameOver() const;
     void SetminY(Tetrimino& tetrimino);
     void UpdateBoard();
     void MoveTetrimino();

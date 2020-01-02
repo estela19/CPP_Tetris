@@ -85,7 +85,7 @@ void Game::NextStage()
     isFloor = false;
 }
 
-bool Game::IsCleard()
+bool Game::IsCleard() const
 {
     if (clearCnt == 10)
     {
@@ -97,7 +97,7 @@ bool Game::IsCleard()
     }
 }
 
-bool Game::IsGameOver()
+bool Game::IsGameOver() const
 {
     if (minBlockPosY <= 0)
     {
