@@ -314,12 +314,5 @@ void Game::SetCursorInvisible()
     SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &ci);
 }
 
-const std::size_t Game::originX = 0;
-const std::size_t Game::originY = 2;
-const std::size_t Game::width_ = 10;
-const std::size_t Game::height_ = 20;
-const std::size_t Game::scrwidth_ = Game::width_ + 1;
-const std::size_t Game::scrheight_ = Game::height_ + 1;
-
 clock_t pretime = 0;
 }  // namespace Tetris

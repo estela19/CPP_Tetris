@@ -57,12 +57,12 @@ class Game
     void SetCursorInvisible();
  
 public:
-    static const std::size_t originX;
-    static const std::size_t originY;
-    static const std::size_t width_;
-    static const std::size_t height_;
-    static const std::size_t scrwidth_;
-    static const std::size_t scrheight_;
+    static constexpr std::size_t originX = 0;
+    static constexpr std::size_t originY = 2;
+    static constexpr std::size_t width_ = 10;
+    static constexpr std::size_t height_ = 20;
+    static constexpr std::size_t scrwidth_ = width_ + 1;
+    static constexpr std::size_t scrheight_ = height_ + 1;
 
  private:
     Game() = default;
