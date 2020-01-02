@@ -49,7 +49,7 @@ void Game::ProcessTurn()
         Screen::PrintBlocks(*tetrimino);
     }
 
-    //�ð� �Ѿ�� godown
+    //½Ã°£ ³Ñ¾î°¡¸é godown
     static clock_t pretime = 0;
 
     double tmp = GetDeltaTime(pretime);
@@ -65,7 +65,7 @@ void Game::ProcessTurn()
 void Game::EndTurn()
 {
     UpdateBoard();
-    tetrimino->~Tetrimino();
+    delete tetrimino;
     if (IsCleard())
     {
         NextStage();
