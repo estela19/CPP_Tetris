@@ -39,8 +39,7 @@ void Point::SetY(int y)
 
 Point Point::operator+(const Point& pt) const
 {
-    Point tmp(x_ + pt.x_, y_ + pt.y_);
-    return tmp;
+    return Point(x_ + pt.x_, y_ + pt.y_);
 }
 
 void Point::GotoXY(int x, int y)  // 커서 위치 이동
