@@ -3,7 +3,7 @@
 
 namespace Tetris
 {
-inline Point patterns[7][4][4] =  // 종류/ 회전 / 단위블록 4개
+inline Point patterns[7][4][4] =  // type / rotate / 4 block unit
     {
         { { Point(0, 1), Point(0, 0), Point(0, -1), Point(0, -2) },
           { Point(-2, 0), Point(-1, 0), Point(0, 0), Point(1, 0) },
