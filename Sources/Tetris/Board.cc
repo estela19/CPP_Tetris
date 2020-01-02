@@ -84,7 +84,6 @@ void Board::UpdateLines()
 
 void Board::ClearBoard()
 {
-    board.clear();
     std::fill(board.begin(), board.end(), TetriminoType::NONE);
 }
 
