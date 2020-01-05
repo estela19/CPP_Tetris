@@ -34,16 +34,14 @@ std::size_t Board::PositionToIdx(std::size_t y, std::size_t x) const
 
 bool Board::IsFullRow(std::size_t idx)
 {
-    bool isfull = true;
     for (std::size_t i = 0; i < Game::width_; i++)
     {
         if (board[PositionToIdx(idx, i)] == TetriminoType::NONE)
         {
-            isfull = false;
-            break;
+            return false;
         }
     }
-    return isfull;
+    return true;
 }
 
 void Board::GetFullRow()
