@@ -53,7 +53,6 @@ void Tetrimino::MoveRight()
 
 void Tetrimino::GoFloor()
 {
-    Pos.SetY(Pos.GetY() + 1);
     while (MoveDown())
     {
     }
