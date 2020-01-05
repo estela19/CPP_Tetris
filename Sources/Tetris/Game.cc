@@ -1,5 +1,6 @@
 #include <Tetris/Game.h>
 #include <Tetris/Screen.h>
+#include <Tetris/Point.h>
 
 #include <effolkronium/random.hpp>
 
@@ -14,7 +15,7 @@ Game& Game::Get()
 void Game::Run()
 {
     SetCursorInvisible();
-    while (true)
+    while (!isGameOver)
     {
         StartTurn();
         while (isFloor == false)
@@ -23,10 +24,6 @@ void Game::Run()
         }
         EndTurn();
 
-        if (isGameOver == true)
-        {
-            break;
-        }
     }
 }
 
@@ -65,6 +62,7 @@ void Game::ProcessTurn()
 void Game::EndTurn()
 {
     UpdateBoard();
+    SetMinY(*tetrimino);
     delete tetrimino;
     if (IsCleard())
     {
@@ -99,7 +97,7 @@ bool Game::IsCleard() const
 
 bool Game::IsGameOver() const
 {
-    if (minBlockPosY <= 0)
+    if (minBlockPosY <= 2)
     {
         return true;
     }
@@ -109,12 +107,12 @@ bool Game::IsGameOver() const
     }
 }
 
-void Game::SetminY(Tetrimino& tetrimino)
+void Game::SetMinY(Tetrimino& tetrimino)
 {
     int minY = 1000;
     for (int i = 0; i < 4; i++)
     {
-        int tetriY = (tetrimino.GetType() + i)->GetY();
+        int tetriY = tetrimino.GetPos().GetY() + (tetrimino.GetType() + i)->GetY();
         minY = (minY < tetriY ? minY : tetriY);
     }
     minBlockPosY = (minY < minBlockPosY ? minY : minBlockPosY);

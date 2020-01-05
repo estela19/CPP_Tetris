@@ -138,13 +138,15 @@ void Screen::PrintSpace(const Tetrimino& tetrimino)
 
 void Screen::PrintGameOver()
 {
-    Point::GotoScrXY(5, 25);
-    std::cout << "Game Over";
-    Point::GotoScrXY(5, 37);
-    std::cout << "Your score is";
+    Point::GotoScrXY(15, 13);
+    ORIGINAL std::cout << "Game Over";
+    Point::GotoScrXY(15, 15);
+    ORIGINAL std::cout << "Your score is ";
     YELLOW std::cout << Game::Get().GetScore();
-    Point::GotoScrXY(5, 38);
-    std::cout << "Your Level is";
+    Point::GotoScrXY(15, 17);
+    ORIGINAL std::cout << "Your Level is ";
     GREEN std::cout << Game::Get().GetLevel();
+    Point::GotoScrXY(20, 25);
+    ORIGINAL std::cout << " ";
 }
 }  // namespace Tetris
