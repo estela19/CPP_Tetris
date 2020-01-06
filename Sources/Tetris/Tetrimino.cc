@@ -62,15 +62,8 @@ void Tetrimino::Rotate()
 {
     RotateType nowtype = Rtype;
 
-    if (Rtype == RotateType::LEFT)
-    {
-        Rtype = RotateType::UP;
-    }
-    else
-    {
-        int tmp = static_cast<int>(Rtype);
-        Rtype = static_cast<RotateType>(++tmp);
-    }
+    Rtype = static_cast<RotateType>((static_cast<int>(Rtype) + 1) % 4);
+
     SetType();
 
     if (!IsValid())
@@ -78,13 +71,13 @@ void Tetrimino::Rotate()
         Rtype = nowtype;
         SetType();
     }
-} 
+}
 
 bool Tetrimino::IsValid()
 {
     std::size_t minX = 0;
-    std::size_t maxX = Game::Get().GetWidth();
-    std::size_t maxY = Game::Get().GetHeight();
+    std::size_t maxX = Game::width_;
+    std::size_t maxY = Game::height_;
 
     for (int i = 0; i < 4; i++)
     {

@@ -276,36 +276,6 @@ Board& Game::GetBoard()
     return board;
 }
 
-std::size_t Game::GetOriginX() const
-{
-    return originX;
-}
-
-std::size_t Game::GetOriginY() const
-{
-    return originY;
-}
-
-std::size_t Game::GetWidth() const
-{
-    return width_;
-}
-
-std::size_t Game::GetHeight() const
-{
-    return height_;
-}
-
-std::size_t Game::GetScrWidth() const
-{
-    return scrwidth_;
-}
-
-std::size_t Game::GetScrHeight() const
-{
-    return scrheight_;
-}
-
 void Game::SetCursorInvisible() 
 {
     CONSOLE_CURSOR_INFO ci = { 10, FALSE };

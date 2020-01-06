@@ -46,12 +46,6 @@ class Game
 
     void SetMinY(Tetrimino& tetrimino);
 
-    std::size_t GetOriginX() const;
-    std::size_t GetOriginY() const;
-    std::size_t GetWidth() const;
-    std::size_t GetHeight() const;
-    std::size_t GetScrWidth() const;
-    std::size_t GetScrHeight() const;
 
  private:
     void SetCursorInvisible();
