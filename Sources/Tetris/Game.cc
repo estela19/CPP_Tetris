@@ -120,7 +120,7 @@ void Game::SetMinY(Tetrimino& tetrimino)
 
 void Game::UpdateBoard()
 {
-    Point tmp(tetrimino->GetPos().GetX(), tetrimino->GetPos().GetY());
+    Point tmp(tetrimino->GetPos());
     for (int i = 0; i < 4; i++)
     {
         board.Getboard(tmp + *(tetrimino->GetType() + i)) =
