@@ -22,11 +22,11 @@ Game Play Screen
 GameOver Screen
 
 ### Game Keys  
-*  ก่ : Rotate tetrimino
-*  ก็ : Move Left
-*  กๆ : Move Right
-*  ก้ : Move Down
-*  space : Go Floor
+*  UP Key : Rotate tetrimino
+*  LEFT Key : Move Left
+*  RIGHT Key : Move Right
+*  DOWN Key : Move Down
+*  SPACE Key : Go Floor
 
 ### Scoring  
 If you clear 10 lines, you can go next level
