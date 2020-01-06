@@ -15,10 +15,10 @@ Implement Tetris with cpp
 
 ## How To Play  
 ### Play Screen
-![gamescreen](https://github.com/estela19/Tetris/blob/master/Resource/game.PNG)
+![gamescreen](https://github.com/estela19/Tetris/blob/master/Resource/game.PNG)  
 Game Play Screen
 
-![gameover](https://github.com/estela19/Tetris/blob/master/Resource/gameover.PNG)
+![gameover](https://github.com/estela19/Tetris/blob/master/Resource/gameover.PNG)  
 GameOver Screen
 
 ### Game Keys  
