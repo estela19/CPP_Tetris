@@ -8,3 +8,28 @@ Implement Tetris with cpp
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/estela19/Tetris.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/estela19/Tetris/alerts/)
 [![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/estela19/Tetris.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/estela19/Tetris/context:cpp)
  
+## Development period & environment  
+* Launguage : C++ 17
+* Environment : Window  
+(You can build window os only)  
+* Period : 2019.12.17 - 2019.12.31.  
+
+## How To Play  
+### Game Keys  
+*  ก่ : Rotate tetrimino
+*  ก็ : Move Left
+*  กๆ : Move Right
+*  ก้ : Move Down
+*  space : Go Floor
+
+### Scoring  
+If you clear 10 lines, you can go next level
+* 1 line : get 100 score
+* 2 lines : get 200 score
+* 3 lines : get 500 score
+* 4 lines : get 1000 score
+
+## TODO List
+- [ ] pause game
+- [ ] multy play
+- [ ] screen settings 
